@@ -3,7 +3,7 @@
 ## Общее описание
 
 **Geometric Lib** — небольшая библиотека на Python для вычисления площади и периметра
-простых геометрических фигур: круга, квадрата, прямоугольника и треугольника.
+простых геометрических фигур: круга и квадрата.
 
 Каждая фигура описана в отдельном файле, в каждом файле есть две функции:
 `area(...)` (площадь) и `perimeter(...)` (периметр).
@@ -21,10 +21,11 @@ geometric_lib
 ### Использование
 
 ```python
-import circle, square,
+import circle
+import square
 
-print(circle.area(1))            # 3.141592653589793
-print(rectangle.perimeter(3, 5)) # 16
+print(circle.area(1))       # 3.141592653589793
+print(square.perimeter(4))  # 16
 ```
 
 ## Описание функций
@@ -79,8 +80,8 @@ print(rectangle.perimeter(3, 5)) # 16
 
 ## История изменений
 
-| Хеш коммита | Описание                                            |
-|-------------|-----------------------------------------------------|
-| `8ba9aeb`   | L-03: Circle and square added                       |
-| `d078c8d`   | L-03: Docs added                                    |
-| `adbfd2a`   | Add docstrings in files                             |
+| Хеш коммита | Описание                      |
+|-------------|-------------------------------|
+| `8ba9aeb`   | L-03: Circle and square added |
+| `d078c8d`   | L-03: Docs added              |
+| `adbfd2a`   | Add docstrings in files       |
