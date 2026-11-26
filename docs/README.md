@@ -14,9 +14,12 @@
 geometric_lib
 ├── circle.py
 ├── square.py
-└── docs
+└── docs    
     └── README.md
 ```
+
+
+
 
 ### Использование
 
@@ -42,6 +45,7 @@ print(square.perimeter(4))  # 16
 >>> circle.area(1)
 3.141592653589793
 ```
+
 
 #### `perimeter(r)`
 Длина окружности радиуса `r`.
@@ -80,8 +84,8 @@ print(square.perimeter(4))  # 16
 
 ## История изменений
 
-| Хеш коммита | Описание                      |
-|-------------|-------------------------------|
+| Хеш коммита | Описание|
+|---|---|
 | `8ba9aeb`   | L-03: Circle and square added |
 | `d078c8d`   | L-03: Docs added              |
 | `adbfd2a`   | Add docstrings in files       |
