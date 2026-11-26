@@ -3,11 +3,10 @@
 ## Общее описание
 
 **Geometric Lib** — небольшая библиотека на Python для вычисления площади и периметра
-простых геометрических фигур: круга, квадрата, прямоугольника и треугольника.
+простых геометрических фигур: круга и квадрата.
 
-Каждая фигура описана в отдельном модуле, в каждом модуле есть две функции:
-`area(...)` (площадь) и `perimeter(...)` (периметр). Внешних зависимостей нет,
-используется только стандартный модуль `math`.
+Каждая фигура описана в отдельном файле, в каждом файле есть две функции:
+`area(...)` (площадь) и `perimeter(...)` (периметр).
 
 ### Структура проекта
 
@@ -15,35 +14,26 @@
 geometric_lib
 ├── circle.py
 ├── square.py
-├── rectangle.py
-├── triangle.py
+├── test_circle.py
+├── test_square.py
+├── .gitignore
 └── docs
-    └── README.md
+    ├── README.md
+    ├── test_plan.md
+    └── img
+        ├── tests_ok.png
+        └── tests_fail.png
 ```
 
 ### Использование
 
 ```python
-import circle, square, rectangle, triangle
+import circle
+import square
 
-print(circle.area(1))            # 3.141592653589793
-print(rectangle.perimeter(3, 5)) # 16
+print(circle.area(1))       # 3.141592653589793
+print(square.perimeter(4))  # 16
 ```
-
-Примеры из комментариев к функциям можно проверить автоматически:
-
-```bash
-python -m doctest circle.py square.py rectangle.py triangle.py -v
-```
-
-### Формулы
-
-| Фигура        | Площадь         | Периметр          |
-|---------------|-----------------|-------------------|
-| Круг          | S = πR²         | P = 2πR           |
-| Квадрат       | S = a²          | P = 4a            |
-| Прямоугольник | S = ab          | P = 2a + 2b       |
-| Треугольник   | S = a·h / 2     | P = a + b + c     |
 
 ## Описание функций
 
@@ -53,7 +43,7 @@ python -m doctest circle.py square.py rectangle.py triangle.py -v
 Площадь круга радиуса `r`.
 
 - **Параметры:** `r` (int | float) — радиус, `r >= 0`
-- **Возвращает:** float — площадь
+- **Возвращаемое значение:** float — площадь
 
 ```python
 >>> circle.area(1)
@@ -64,7 +54,7 @@ python -m doctest circle.py square.py rectangle.py triangle.py -v
 Длина окружности радиуса `r`.
 
 - **Параметры:** `r` (int | float) — радиус, `r >= 0`
-- **Возвращает:** float — длина окружности
+- **Возвращаемое значение:** float — длина окружности
 
 ```python
 >>> circle.perimeter(1)
@@ -77,7 +67,7 @@ python -m doctest circle.py square.py rectangle.py triangle.py -v
 Площадь квадрата со стороной `a`.
 
 - **Параметры:** `a` (int | float) — сторона, `a >= 0`
-- **Возвращает:** int | float — площадь
+- **Возвращаемое значение:** int | float — площадь
 
 ```python
 >>> square.area(4)
@@ -88,69 +78,37 @@ python -m doctest circle.py square.py rectangle.py triangle.py -v
 Периметр квадрата со стороной `a`.
 
 - **Параметры:** `a` (int | float) — сторона, `a >= 0`
-- **Возвращает:** int | float — периметр
+- **Возвращаемое значение:** int | float — периметр
 
 ```python
 >>> square.perimeter(4)
 16
 ```
 
-### `rectangle.py`
+## Тестирование
 
-#### `area(a, b)`
-Площадь прямоугольника со сторонами `a` и `b`.
+Функции покрыты unit-тестами на стандартном модуле `unittest`:
 
-- **Параметры:** `a`, `b` (int | float) — длина и ширина, `>= 0`
-- **Возвращает:** int | float — площадь
+- `test_circle.py` — тесты `circle.area` и `circle.perimeter`;
+- `test_square.py` — тесты `square.area` и `square.perimeter`.
 
-```python
->>> rectangle.area(3, 5)
-15
+Запуск всех тестов из корня проекта:
+
+```
+python3 -m unittest -v
 ```
 
-#### `perimeter(a, b)`
-Периметр прямоугольника со сторонами `a` и `b`.
-
-- **Параметры:** `a`, `b` (int | float) — длина и ширина, `>= 0`
-- **Возвращает:** int | float — периметр
-
-```python
->>> rectangle.perimeter(3, 5)
-16
-```
-
-### `triangle.py`
-
-#### `area(a, h)`
-Площадь треугольника по основанию `a` и высоте `h`.
-
-- **Параметры:** `a` (int | float) — основание; `h` (int | float) — высота к основанию
-- **Возвращает:** float — площадь
-
-```python
->>> triangle.area(6, 4)
-12.0
-```
-
-#### `perimeter(a, b, c)`
-Периметр треугольника со сторонами `a`, `b`, `c`.
-
-- **Параметры:** `a`, `b`, `c` (int | float) — стороны треугольника
-- **Возвращает:** int | float — периметр
-
-```python
->>> triangle.perimeter(3, 4, 5)
-12
-```
+План тестирования описан в [test_plan.md](test_plan.md).
 
 ## История изменений
 
-| Хеш коммита | Описание                                            |
-|-------------|-----------------------------------------------------|
-| `8ba9aeb`   | L-03: Circle and square added                       |
-| `d078c8d`   | L-03: Docs added                                    |
-| `a141b5f`   | Add rectangle.py                                    |
-| `8345e31`   | Add triangle.py                                     |
-| `f1e7fdb`   | Fix rectangle perimeter calculation                 |
-| `2695006`   | Add docstrings with call examples to all functions  |
-| —           | Add project documentation (docs/README.md)          |
+| Хеш коммита | Описание                                |
+|-------------|-----------------------------------------|
+| `8ba9aeb`   | L-03: Circle and square added           |
+| `d078c8d`   | L-03: Docs added                        |
+| `adbfd2a`   | Add docstrings in files                 |
+| `8ed5e45`   | Updated proj documentation              |
+| `ad31f3a`   | Final update in docs                    |
+| `53271b3`   | Docs: update changelog                  |
+| `4da91c1`   | L-04: Unit tests added                  |
+| `a45ad3b`   | L-04: Docs: tests section and test plan |
