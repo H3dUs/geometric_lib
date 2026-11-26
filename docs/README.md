@@ -17,12 +17,18 @@ geometric_lib
 ├── test_circle.py
 ├── test_square.py
 ├── .gitignore
+├── .github
+│   └── workflows
+│       └── main.yml
 └── docs
     ├── README.md
     ├── test_plan.md
+    ├── ci.md
     └── img
         ├── tests_ok.png
-        └── tests_fail.png
+        ├── tests_fail.png
+        ├── ci_ok.png
+        └── ci_windows.png
 ```
 
 ### Использование
@@ -100,6 +106,14 @@ python3 -m unittest -v
 
 План тестирования описан в [test_plan.md](test_plan.md).
 
+## Непрерывная интеграция (CI)
+
+После каждого push GitHub Actions автоматически запускает все unit-тесты
+на двух runner'ах: `ubuntu-latest` и `windows-latest`.
+Workflow описан в файле `.github/workflows/main.yml`.
+
+Подробности и результаты запуска — в [ci.md](ci.md).
+
 ## История изменений
 
 | Хеш коммита | Описание                                |
@@ -112,3 +126,5 @@ python3 -m unittest -v
 | `53271b3`   | Docs: update changelog                  |
 | `4da91c1`   | L-04: Unit tests added                  |
 | `a45ad3b`   | L-04: Docs: tests section and test plan |
+| `1a64adb`   | L-04: Docs: fix README                  |
+| `1174bd8`   | L-05: CI workflow added                 |
