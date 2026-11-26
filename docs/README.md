@@ -128,3 +128,4 @@ Workflow описан в файле `.github/workflows/main.yml`.
 | `a45ad3b`   | L-04: Docs: tests section and test plan |
 | `1a64adb`   | L-04: Docs: fix README                  |
 | `1174bd8`   | L-05: CI workflow added                 |
+| `f46dd07`   | L-05: Docs: CI report                   |
