@@ -27,3 +27,7 @@ class CirclePerimeterTestCase(unittest.TestCase):
 
     def test_float_radius(self):
         self.assertAlmostEqual(circle.perimeter(2.5), 5 * math.pi)
+
+class CirlceNothingTestCase(unittest.TestCase):
+    def test_nithing(self):
+        self.assertAlmostEqual(circle.perimeter(10), math.pi * 2 * 10)
